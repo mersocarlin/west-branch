@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Hemerson Carlin <mersocarlin@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "restify": "^4.1.1"
   }

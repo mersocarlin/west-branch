@@ -6,7 +6,9 @@ services:
     volumes:
       - .:/usr/src/app
     ports:
-      - "3001:3001"
+      - "3000:3000"
     environment:
       - NODE_ENV=development
-      - HTTP_PORT=3001
+      - HTTP_PORT=3000
+      - SQUARE_SERVICE_URL=#
+      - TRIANGLE_SERVICE_URL=#
