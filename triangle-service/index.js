@@ -8,7 +8,7 @@ var server = restify.createServer({
 
 server.get('/triangles/:name', function (req, res, next) {
   var result = {
-    name: req.params.name,
+    triangle: req.params.name,
   };
 
   res.send(200, result);

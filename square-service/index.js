@@ -8,7 +8,7 @@ var server = restify.createServer({
 
 server.get('/squares/:name', function (req, res, next) {
   var result = {
-    name: req.params.name,
+    square: req.params.name,
   };
 
   res.send(200, result);
