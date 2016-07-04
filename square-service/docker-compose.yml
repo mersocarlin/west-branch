@@ -2,7 +2,8 @@ version: '2'
 services:
   api:
     build: .
-    command: npm start
+    working_dir: /usr/src/app
+    command: ./entrypoint.sh
     volumes:
       - .:/usr/src/app
     ports:
