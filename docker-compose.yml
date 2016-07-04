@@ -2,19 +2,27 @@ version: '2'
 services:
   apigateway:
     build: ./api-gateway/.
-    command: npm start
+    working_dir: /usr/src/app
+    command: ./entrypoint.sh
     volumes:
       - ./api-gateway:/usr/src/app
     ports:
       - "3000:3000"
+    depends_on:
+      - squareservice
+      - triangleservice
+    links:
+      - squareservice
+      - triangleservice
     environment:
       HTTP_PORT: 3000
-      SQUARE_SERVICE_URL: #
-      TRIANGLE_SERVICE_URL: #
+      SQUARE_SERVICE_URL: http://squareservice:3001
+      TRIANGLE_SERVICE_URL: http://triangleservice:3002
 
   squareservice:
     build: ./square-service/.
-    command: npm start
+    working_dir: /usr/src/app
+    command: ./entrypoint.sh
     volumes:
       - ./square-service:/usr/src/app
     ports:
@@ -24,7 +32,8 @@ services:
 
   triangleservice:
     build: ./triangle-service/.
-    command: npm start
+    working_dir: /usr/src/app
+    command: ./entrypoint.sh
     volumes:
       - ./triangle-service:/usr/src/app
     ports:
