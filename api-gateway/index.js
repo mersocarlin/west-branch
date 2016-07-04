@@ -21,7 +21,7 @@ server.listen(process.env.HTTP_PORT, function() {
 
 function executeRequest (res, url, param) {
   axios
-    .get(url + '/' + param)
+    .get(url + '/' + param + '/' + param)
     .then(function (response) {
       res.send(200, response.data);
     })
